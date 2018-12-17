@@ -8,7 +8,117 @@ public class SubscriptionPricingModel implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
+	private java.lang.String productCode;
+	private java.lang.String pricePlan;
+	private java.math.BigDecimal price;
+	private int boughtVolume;
+	private int actualVolume;
+	private java.time.LocalDateTime subscriptionFrom;
+	private java.time.LocalDateTime subscriptionUntil;
+	private java.time.LocalDate startBillingDate;
+	private java.lang.String promotionCode;
+	private int klaraPoints;
+
 	public SubscriptionPricingModel() {
+	}
+
+	public java.lang.String getProductCode() {
+		return this.productCode;
+	}
+
+	public void setProductCode(java.lang.String productCode) {
+		this.productCode = productCode;
+	}
+
+	public java.lang.String getPricePlan() {
+		return this.pricePlan;
+	}
+
+	public void setPricePlan(java.lang.String pricePlan) {
+		this.pricePlan = pricePlan;
+	}
+
+	public java.math.BigDecimal getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(java.math.BigDecimal price) {
+		this.price = price;
+	}
+
+	public int getBoughtVolume() {
+		return this.boughtVolume;
+	}
+
+	public void setBoughtVolume(int boughtVolume) {
+		this.boughtVolume = boughtVolume;
+	}
+
+	public int getActualVolume() {
+		return this.actualVolume;
+	}
+
+	public void setActualVolume(int actualVolume) {
+		this.actualVolume = actualVolume;
+	}
+
+	public java.time.LocalDateTime getSubscriptionFrom() {
+		return this.subscriptionFrom;
+	}
+
+	public void setSubscriptionFrom(java.time.LocalDateTime subscriptionFrom) {
+		this.subscriptionFrom = subscriptionFrom;
+	}
+
+	public java.time.LocalDateTime getSubscriptionUntil() {
+		return this.subscriptionUntil;
+	}
+
+	public void setSubscriptionUntil(java.time.LocalDateTime subscriptionUntil) {
+		this.subscriptionUntil = subscriptionUntil;
+	}
+
+	public java.time.LocalDate getStartBillingDate() {
+		return this.startBillingDate;
+	}
+
+	public void setStartBillingDate(java.time.LocalDate startBillingDate) {
+		this.startBillingDate = startBillingDate;
+	}
+
+	public java.lang.String getPromotionCode() {
+		return this.promotionCode;
+	}
+
+	public void setPromotionCode(java.lang.String promotionCode) {
+		this.promotionCode = promotionCode;
+	}
+
+	public int getKlaraPoints() {
+		return this.klaraPoints;
+	}
+
+	public void setKlaraPoints(int klaraPoints) {
+		this.klaraPoints = klaraPoints;
+	}
+
+	public SubscriptionPricingModel(java.lang.String productCode,
+			java.lang.String pricePlan, java.math.BigDecimal price,
+			int boughtVolume, int actualVolume,
+			java.time.LocalDateTime subscriptionFrom,
+			java.time.LocalDateTime subscriptionUntil,
+			java.time.LocalDate startBillingDate,
+			java.lang.String promotionCode, int klaraPoints) {
+		this.productCode = productCode;
+		this.pricePlan = pricePlan;
+		this.price = price;
+		this.boughtVolume = boughtVolume;
+		this.actualVolume = actualVolume;
+		this.subscriptionFrom = subscriptionFrom;
+		this.subscriptionUntil = subscriptionUntil;
+		this.startBillingDate = startBillingDate;
+		this.promotionCode = promotionCode;
+		this.klaraPoints = klaraPoints;
 	}
 
 }
