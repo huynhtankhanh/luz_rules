@@ -1,0 +1,56 @@
+package ch.klara.luz.store.rules;
+
+
+import ch.klara.luz.store.model.ProductPricing;
+import java.lang.Number;
+
+dialect "mvel"
+
+rule "Price plan is SINGLE"
+	when
+		$productPricing : ProductPricing( pricePlan == "SINGLE" )
+	then
+		$productPricing.setPrice(3.0B);
+end
+
+rule "Price plan is VOLUME"
+    when
+        $productPricing: ProductPricing(pricePlan == "VOLUME", $volume : volume )
+    then
+        $productPricing.setPrice(2.0B * $volume);
+end
+
+rule "Product code is POS"
+    when
+        $productPricing: ProductPricing(productCode contains "POS" && pricePlan == "MONTHLY")
+    then
+        $productPricing.setPrice(49.0B);
+end
+
+rule "Product code is BOOKING"
+    when
+        $productPricing: ProductPricing(productCode contains "BOOKING" && pricePlan == "MONTHLY")
+    then
+        $productPricing.setPrice(79.0B);
+end
+
+rule "Price plan is MONTHLY"
+    when
+        $productPricing: ProductPricing(productCode not contains "POS" && productCode not contains "BOOKING" && pricePlan == "MONTHLY")
+    then
+        $productPricing.setPrice(39.0B);
+end
+
+rule "Price plan is QUARTERLY"
+    when
+        $productPricing: ProductPricing(pricePlan == "QUARTERLY")
+    then
+        $productPricing.setPrice(100.0B);
+end
+
+rule "Price plan is YEARLY"
+    when
+        $productPricing: ProductPricing(pricePlan == "YEARLY")
+    then
+        $productPricing.setPrice(400.0B);
+end
