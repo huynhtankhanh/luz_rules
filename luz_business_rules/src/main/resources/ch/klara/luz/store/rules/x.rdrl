@@ -1,0 +1,9 @@
+package ch.klara.luz.store.rules;
+
+import java.lang.Number;
+
+rule "x"
+	dialect "mvel"
+	when
+	then
+end
