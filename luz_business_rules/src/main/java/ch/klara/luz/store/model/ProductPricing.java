@@ -13,6 +13,10 @@ public class ProductPricing implements java.io.Serializable {
 	private java.lang.String pricePlan;
 	private java.math.BigDecimal price;
 
+	private int klaraPoints;
+
+	private java.lang.String testingDuration;
+
 	public ProductPricing() {
 	}
 
@@ -48,12 +52,31 @@ public class ProductPricing implements java.io.Serializable {
 		this.price = price;
 	}
 
+	public int getKlaraPoints() {
+		return this.klaraPoints;
+	}
+
+	public void setKlaraPoints(int klaraPoints) {
+		this.klaraPoints = klaraPoints;
+	}
+
+	public java.lang.String getTestingDuration() {
+		return this.testingDuration;
+	}
+
+	public void setTestingDuration(java.lang.String testingDuration) {
+		this.testingDuration = testingDuration;
+	}
+
 	public ProductPricing(java.lang.String productCode, int volume,
-			java.lang.String pricePlan, java.math.BigDecimal price) {
+			java.lang.String pricePlan, java.math.BigDecimal price,
+			int klaraPoints, java.lang.String testingDuration) {
 		this.productCode = productCode;
 		this.volume = volume;
 		this.pricePlan = pricePlan;
 		this.price = price;
+		this.klaraPoints = klaraPoints;
+		this.testingDuration = testingDuration;
 	}
 
 }
