@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.klara.luz</groupId>
   <artifactId>luz_business_rules</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>luz_business_rules</name>
   <description>Business rules</description>
   <repositories>
@@ -13,5 +13,5 @@
       <name>Guvnor M2 Repo</name>
       <url>http://localhost:8080/kie-wb/maven2/</url>
     </repository>
-  </repositories>   
+  </repositories>
 </project>
