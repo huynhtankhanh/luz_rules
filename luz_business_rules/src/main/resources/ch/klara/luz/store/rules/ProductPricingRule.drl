@@ -2,6 +2,8 @@ package ch.klara.luz.store.rules;
 
 
 import ch.klara.luz.store.model.ProductPricing;
+import ch.klara.luz.store.model.CustomerPricingModel;
+import java.time.LocalDate;
 import java.lang.Number;
 
 dialect "mvel"
@@ -53,4 +55,22 @@ rule "Price plan is YEARLY"
         $productPricing: ProductPricing(pricePlan == "YEARLY")
     then
         $productPricing.setPrice(400.0B);
+end
+
+rule "Customer legal form is EU and price plan is yearly"
+    when
+        $productPricing: ProductPricing(pricePlan == "YEARLY");
+        $customer: CustomerPricingModel(legalForm == "EU");
+    then
+        $productPricing.setPrice(399.15B);
+        $productPricing.setTestingDuration("30D");
+end
+
+rule "Customer loyalty since last year and price plan is yearly"
+    when
+        $productPricing: ProductPricing(pricePlan == "YEARLY");
+        $customer: CustomerPricingModel(customerSinceDate == LocalDate.now());
+    then
+        $productPricing.setPrice(399.15B);
+        $productPricing.setTestingDuration("30D");
 end
