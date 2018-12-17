@@ -9,11 +9,12 @@ public class CustomerPricingModel implements java.io.Serializable {
 	static final long serialVersionUID = 1L;
 
 	private java.lang.String legalForm;
-	private int employeeSize;
 	private java.math.BigDecimal turnover;
 	private java.lang.String nogaCode;
 	private java.lang.String region;
 	private java.time.LocalDate customerSinceDate;
+
+	private int numberOfEmployees;
 
 	public CustomerPricingModel() {
 	}
@@ -24,14 +25,6 @@ public class CustomerPricingModel implements java.io.Serializable {
 
 	public void setLegalForm(java.lang.String legalForm) {
 		this.legalForm = legalForm;
-	}
-
-	public int getEmployeeSize() {
-		return this.employeeSize;
-	}
-
-	public void setEmployeeSize(int employeeSize) {
-		this.employeeSize = employeeSize;
 	}
 
 	public java.math.BigDecimal getTurnover() {
@@ -66,15 +59,24 @@ public class CustomerPricingModel implements java.io.Serializable {
 		this.customerSinceDate = customerSinceDate;
 	}
 
-	public CustomerPricingModel(java.lang.String legalForm, int employeeSize,
+	public int getNumberOfEmployees() {
+		return this.numberOfEmployees;
+	}
+
+	public void setNumberOfEmployees(int numberOfEmployees) {
+		this.numberOfEmployees = numberOfEmployees;
+	}
+
+	public CustomerPricingModel(java.lang.String legalForm,
 			java.math.BigDecimal turnover, java.lang.String nogaCode,
-			java.lang.String region, java.time.LocalDate customerSinceDate) {
+			java.lang.String region, java.time.LocalDate customerSinceDate,
+			int numberOfEmployees) {
 		this.legalForm = legalForm;
-		this.employeeSize = employeeSize;
 		this.turnover = turnover;
 		this.nogaCode = nogaCode;
 		this.region = region;
 		this.customerSinceDate = customerSinceDate;
+		this.numberOfEmployees = numberOfEmployees;
 	}
 
 }
