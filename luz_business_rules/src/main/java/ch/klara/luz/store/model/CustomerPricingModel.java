@@ -6,12 +6,75 @@ package ch.klara.luz.store.model;
 
 public class CustomerPricingModel implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public CustomerPricingModel() {
-    }
+	private java.lang.String legalForm;
+	private int employeeSize;
+	private java.math.BigDecimal turnover;
+	private java.lang.String nogaCode;
+	private java.lang.String region;
+	private java.time.LocalDate customerSinceDate;
 
+	public CustomerPricingModel() {
+	}
 
+	public java.lang.String getLegalForm() {
+		return this.legalForm;
+	}
 
+	public void setLegalForm(java.lang.String legalForm) {
+		this.legalForm = legalForm;
+	}
+
+	public int getEmployeeSize() {
+		return this.employeeSize;
+	}
+
+	public void setEmployeeSize(int employeeSize) {
+		this.employeeSize = employeeSize;
+	}
+
+	public java.math.BigDecimal getTurnover() {
+		return this.turnover;
+	}
+
+	public void setTurnover(java.math.BigDecimal turnover) {
+		this.turnover = turnover;
+	}
+
+	public java.lang.String getNogaCode() {
+		return this.nogaCode;
+	}
+
+	public void setNogaCode(java.lang.String nogaCode) {
+		this.nogaCode = nogaCode;
+	}
+
+	public java.lang.String getRegion() {
+		return this.region;
+	}
+
+	public void setRegion(java.lang.String region) {
+		this.region = region;
+	}
+
+	public java.time.LocalDate getCustomerSinceDate() {
+		return this.customerSinceDate;
+	}
+
+	public void setCustomerSinceDate(java.time.LocalDate customerSinceDate) {
+		this.customerSinceDate = customerSinceDate;
+	}
+
+	public CustomerPricingModel(java.lang.String legalForm, int employeeSize,
+			java.math.BigDecimal turnover, java.lang.String nogaCode,
+			java.lang.String region, java.time.LocalDate customerSinceDate) {
+		this.legalForm = legalForm;
+		this.employeeSize = employeeSize;
+		this.turnover = turnover;
+		this.nogaCode = nogaCode;
+		this.region = region;
+		this.customerSinceDate = customerSinceDate;
+	}
 
 }
