@@ -3,24 +3,24 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>aavn_snapshots</id>
-        <url>http://repo-vn.axonivy.io:8081/artifactory/libs-snapshot/</url>
+        <id>local</id>
+        <url>C:\Users\bqvinh/.m2/repository</url>
+        <source>LOCAL</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>true</include>
+      <metadata>
+        <id>soreco_repo</id>
+        <url>http://192.168.48.10/artifactory/repo</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
     <repository>
       <include>true</include>
       <metadata>
-        <id>aavn_release</id>
-        <url>http://repo-vn.axonivy.io:8081/artifactory/libs-release/</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>maven_central</id>
-        <url>http://repo1.maven.org/maven2</url>
+        <id>axonivy-snapshot-repo</id>
+        <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
@@ -35,7 +35,7 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>axonivy_repo_release</id>
+        <id>central</id>
         <url>https://repo.axonivy.io/libs-release</url>
         <source>SETTINGS</source>
       </metadata>
@@ -43,49 +43,9 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>local</id>
-        <url>E:\maven_repo</url>
-        <source>LOCAL</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>axonivy_repo_snapshot</id>
+        <id>snapshots</id>
         <url>https://repo.axonivy.io/libs-snapshot</url>
         <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>maven-central</id>
-        <url>http://repo1.maven.org/maven2</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>axonivy_repo_snapshot</id>
-        <url>https://repo.axonivy.io/libs-snapshot/</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>axonivy_repo_release</id>
-        <url>https://repo.axonivy.io/libs-release/</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>central</id>
-        <url>https://repo.maven.apache.org/maven2</url>
-        <source>PROJECT</source>
       </metadata>
     </repository>
   </repositories>
