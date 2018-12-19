@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.lang.Number;
 
 dialect "mvel"
-dialect "java"
 
 rule "Price plan is SINGLE"
 	when
