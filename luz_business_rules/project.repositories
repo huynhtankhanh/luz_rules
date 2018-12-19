@@ -3,8 +3,8 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>central</id>
-        <url>https://repo.axonivy.io/libs-release</url>
+        <id>soreco_repo</id>
+        <url>http://192.168.48.10/artifactory/repo</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
@@ -19,14 +19,6 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>local</id>
-        <url>C:\Users\bqvinh/.m2/repository</url>
-        <source>LOCAL</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
         <id>guvnor-m2-repo</id>
         <url>http://localhost:8080/kie-wb/maven2/</url>
         <source>PROJECT</source>
@@ -35,8 +27,16 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>soreco_repo</id>
-        <url>http://192.168.48.10/artifactory/repo</url>
+        <id>local</id>
+        <url>C:\Users\bqvinh/.m2/repository</url>
+        <source>LOCAL</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>true</include>
+      <metadata>
+        <id>central</id>
+        <url>https://repo.axonivy.io/libs-release</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
