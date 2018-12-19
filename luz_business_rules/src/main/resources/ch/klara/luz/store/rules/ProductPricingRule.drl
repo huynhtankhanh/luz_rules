@@ -1,9 +1,8 @@
 package ch.klara.luz.store.rules;
 
-
 import ch.klara.luz.store.model.ProductPricing;
 import ch.klara.luz.store.model.CustomerPricingModel;
-import java.time.LocalDate;
+import ch.klara.luz.store.model.SubscriptionPricingModel;
 import java.lang.Number;
 
 dialect "mvel"
@@ -63,27 +62,23 @@ rule "Customer legal form is EU and price plan is yearly"
         $productPricing: ProductPricing(pricePlan == "YEARLY");
         $customer: CustomerPricingModel(legalForm == "EU");
     then
-        $productPricing.setPrice(399.15B);
-        $productPricing.setTestingDuration("30D");
+        $productPricing.setPrice(359.15B);
+        $productPricing.setTestingDuration("P30D");
 end
 
-rule "Customer loyalty since first day of year 2018 and price plan is QUARTERLY"
+rule "Being customer since first day of year 2018 and price plan is QUARTERLY"
     when
-        $productPricing: ProductPricing(pricePlan == "QUARTERLY");
-        $date: LocalDate() from LocalDate.of(2018, 1, 1);
-        $customer: CustomerPricingModel(customerSinceDate == $date);
+        $productPricing: ProductPricing(pricePlan == "QUARTERLY")
+        $customer: CustomerPricingModel(customerSinceDate >= "1-Jan-2018")
     then
-        $productPricing.setPrice(211.0B);
-        $productPricing.setTestingDuration("10D");
-        $productPricing.setKlaraPoints(10);
+        $productPricing.setPrice(95.0B)
+        $productPricing.setTestingDuration("P1M")
 end
 
-rule "Customer loyalty since first day of year 2018 and price plan is YEARLY"
+rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
     when
-        $productPricing: ProductPricing(pricePlan == "YEARLY");
-        $customer: CustomerPricingModel(birthdate > "1-Jan-2018");
+        $subscription: SubscriptionPricingModel(productCode == "Send And Print")
+        $productPricing: ProductPricing(productCode == "Valiant Banking")
     then
-        $productPricing.setPrice(199.0B);
-        $productPricing.setTestingDuration("19D");
-        $productPricing.setKlaraPoints(19);
+        $productPricing.setPrice(55.0B)
 end
