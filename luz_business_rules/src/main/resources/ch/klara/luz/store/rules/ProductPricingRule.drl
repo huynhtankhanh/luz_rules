@@ -70,7 +70,7 @@ end
 rule "Customer loyalty since first day of year 2018 and price plan is QUARTERLY"
     when
         $productPricing: ProductPricing(pricePlan == "QUARTERLY");
-        $customer: CustomerPricingModel(customerSinceDate <= "2-Jan-2018");
+        $customer: CustomerPricingModel(customerSinceDate == "2-Jan-2018");
     then
         $productPricing.setPrice(211.0B);
         $productPricing.setTestingDuration("10D");
