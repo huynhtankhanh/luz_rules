@@ -18,10 +18,12 @@ public class CustomerPricingModel implements java.io.Serializable {
 	private java.lang.String legalForm;
 	private java.lang.String nogaCode;
 	private java.lang.String region;
-	
-	@JsonSerialize(using = CSerializer.class)
-	@JsonDeserialize(using = CDeserializer.class)
+
+	@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = CSerializer.class)
+	@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = CDeserializer.class)
 	private LocalDate customerSinceDate;
+
+	private java.util.Date birthdate;
 
 	public CustomerPricingModel() {
 	}
@@ -58,13 +60,22 @@ public class CustomerPricingModel implements java.io.Serializable {
 		this.customerSinceDate = customerSinceDate;
 	}
 
+	public java.util.Date getBirthdate() {
+		return this.birthdate;
+	}
+
+	public void setBirthdate(java.util.Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
 	public CustomerPricingModel(java.lang.String legalForm,
 			java.lang.String nogaCode, java.lang.String region,
-			java.time.LocalDate customerSinceDate) {
+			java.time.LocalDate customerSinceDate, java.util.Date birthdate) {
 		this.legalForm = legalForm;
 		this.nogaCode = nogaCode;
 		this.region = region;
 		this.customerSinceDate = customerSinceDate;
+		this.birthdate = birthdate;
 	}
 
 }
