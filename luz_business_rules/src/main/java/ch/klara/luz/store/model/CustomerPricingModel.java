@@ -21,9 +21,17 @@ public class CustomerPricingModel implements java.io.Serializable {
 
 	@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = CSerializer.class)
 	@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = CDeserializer.class)
-	private LocalDate customerSinceDate;
+	private Date customerSinceDate;
 
-	private java.util.Date birthdate;
+	private java.lang.String name;
+
+	private java.lang.String corporateIdentificationNumber;
+
+	private java.lang.String internetAddress;
+
+	private java.lang.String socialNetwork;
+
+	private java.lang.String industryCode;
 
 	public CustomerPricingModel() {
 	}
@@ -52,30 +60,70 @@ public class CustomerPricingModel implements java.io.Serializable {
 		this.region = region;
 	}
 
-	public java.time.LocalDate getCustomerSinceDate() {
+	public java.util.Date getCustomerSinceDate() {
 		return this.customerSinceDate;
 	}
 
-	public void setCustomerSinceDate(java.time.LocalDate customerSinceDate) {
+	public void setCustomerSinceDate(java.util.Date customerSinceDate) {
 		this.customerSinceDate = customerSinceDate;
 	}
 
-	public java.util.Date getBirthdate() {
-		return this.birthdate;
+	public java.lang.String getName() {
+		return this.name;
 	}
 
-	public void setBirthdate(java.util.Date birthdate) {
-		this.birthdate = birthdate;
+	public void setName(java.lang.String name) {
+		this.name = name;
+	}
+
+	public java.lang.String getCorporateIdentificationNumber() {
+		return this.corporateIdentificationNumber;
+	}
+
+	public void setCorporateIdentificationNumber(
+			java.lang.String corporateIdentificationNumber) {
+		this.corporateIdentificationNumber = corporateIdentificationNumber;
+	}
+
+	public java.lang.String getInternetAddress() {
+		return this.internetAddress;
+	}
+
+	public void setInternetAddress(java.lang.String internetAddress) {
+		this.internetAddress = internetAddress;
+	}
+
+	public java.lang.String getSocialNetwork() {
+		return this.socialNetwork;
+	}
+
+	public void setSocialNetwork(java.lang.String socialNetwork) {
+		this.socialNetwork = socialNetwork;
+	}
+
+	public java.lang.String getIndustryCode() {
+		return this.industryCode;
+	}
+
+	public void setIndustryCode(java.lang.String industryCode) {
+		this.industryCode = industryCode;
 	}
 
 	public CustomerPricingModel(java.lang.String legalForm,
 			java.lang.String nogaCode, java.lang.String region,
-			java.time.LocalDate customerSinceDate, java.util.Date birthdate) {
+			java.util.Date customerSinceDate, java.lang.String name,
+			java.lang.String corporateIdentificationNumber,
+			java.lang.String internetAddress, java.lang.String socialNetwork,
+			java.lang.String industryCode) {
 		this.legalForm = legalForm;
 		this.nogaCode = nogaCode;
 		this.region = region;
 		this.customerSinceDate = customerSinceDate;
-		this.birthdate = birthdate;
+		this.name = name;
+		this.corporateIdentificationNumber = corporateIdentificationNumber;
+		this.internetAddress = internetAddress;
+		this.socialNetwork = socialNetwork;
+		this.industryCode = industryCode;
 	}
 
 }
