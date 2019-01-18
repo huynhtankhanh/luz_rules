@@ -11,16 +11,24 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>soreco_repo</id>
-        <url>http://192.168.48.10/artifactory/repo</url>
+        <id>snapshots</id>
+        <url>https://repo.axonivy.io/libs-snapshot</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
     <repository>
       <include>true</include>
       <metadata>
-        <id>snapshots</id>
-        <url>https://repo.axonivy.io/libs-snapshot</url>
+        <id>axonivy-snapshot-repo</id>
+        <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
+        <source>SETTINGS</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>true</include>
+      <metadata>
+        <id>soreco_repo</id>
+        <url>http://192.168.48.10/artifactory/repo</url>
         <source>SETTINGS</source>
       </metadata>
     </repository>
@@ -38,14 +46,6 @@
         <id>guvnor-m2-repo</id>
         <url>http://localhost:8080/kie-wb/maven2/</url>
         <source>PROJECT</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>axonivy-snapshot-repo</id>
-        <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
-        <source>SETTINGS</source>
       </metadata>
     </repository>
   </repositories>
