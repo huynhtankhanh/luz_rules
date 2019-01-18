@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.klara.luz</groupId>
   <artifactId>luz_business_rules</artifactId>
-  <version>1.0.10</version>
+  <version>1.0.11</version>
   <name>luz_business_rules</name>
   <description>Business rules</description>
   <repositories>
