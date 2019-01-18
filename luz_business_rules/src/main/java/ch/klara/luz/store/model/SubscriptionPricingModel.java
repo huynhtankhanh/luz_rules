@@ -21,6 +21,8 @@ public class SubscriptionPricingModel implements java.io.Serializable {
 	private java.lang.String promotionCode;
 	private int klaraPoints;
 
+	private java.lang.String companyUri;
+
 	public SubscriptionPricingModel() {
 	}
 
@@ -104,12 +106,20 @@ public class SubscriptionPricingModel implements java.io.Serializable {
 		this.startBillingDate = startBillingDate;
 	}
 
+	public java.lang.String getCompanyUri() {
+		return this.companyUri;
+	}
+
+	public void setCompanyUri(java.lang.String companyUri) {
+		this.companyUri = companyUri;
+	}
+
 	public SubscriptionPricingModel(java.lang.String productCode,
 			java.lang.String pricePlan, java.math.BigDecimal price,
 			int boughtVolume, int actualVolume,
 			java.util.Date subscriptionFrom, java.util.Date subscriptionUntil,
 			java.util.Date startBillingDate, java.lang.String promotionCode,
-			int klaraPoints) {
+			int klaraPoints, java.lang.String companyUri) {
 		this.productCode = productCode;
 		this.pricePlan = pricePlan;
 		this.price = price;
@@ -120,6 +130,7 @@ public class SubscriptionPricingModel implements java.io.Serializable {
 		this.startBillingDate = startBillingDate;
 		this.promotionCode = promotionCode;
 		this.klaraPoints = klaraPoints;
+		this.companyUri = companyUri;
 	}
 
 }
