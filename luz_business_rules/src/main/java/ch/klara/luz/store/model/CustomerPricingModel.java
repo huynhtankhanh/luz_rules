@@ -26,6 +26,8 @@ public class CustomerPricingModel implements java.io.Serializable {
 
 	private java.lang.String industryCode;
 
+	private java.lang.String companyUri;
+
 	public CustomerPricingModel() {
 	}
 
@@ -102,12 +104,20 @@ public class CustomerPricingModel implements java.io.Serializable {
 		this.industryCode = industryCode;
 	}
 
+	public java.lang.String getCompanyUri() {
+		return this.companyUri;
+	}
+
+	public void setCompanyUri(java.lang.String companyUri) {
+		this.companyUri = companyUri;
+	}
+
 	public CustomerPricingModel(java.lang.String legalForm,
 			java.lang.String nogaCode, java.lang.String region,
 			java.util.Date customerSinceDate, java.lang.String name,
 			java.lang.String corporateIdentificationNumber,
 			java.lang.String internetAddress, java.lang.String socialNetwork,
-			java.lang.String industryCode) {
+			java.lang.String industryCode, java.lang.String companyUri) {
 		this.legalForm = legalForm;
 		this.nogaCode = nogaCode;
 		this.region = region;
@@ -117,6 +127,7 @@ public class CustomerPricingModel implements java.io.Serializable {
 		this.internetAddress = internetAddress;
 		this.socialNetwork = socialNetwork;
 		this.industryCode = industryCode;
+		this.companyUri = companyUri;
 	}
 
 }
