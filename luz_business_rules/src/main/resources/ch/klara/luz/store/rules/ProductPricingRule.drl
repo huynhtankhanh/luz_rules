@@ -78,7 +78,7 @@ end
 rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
     when
         $productPricing: ProductPricing(productCode == "Valiant Banking")
-        $subscription: SubscriptionPricingModel(productCode == "Send And Print", companyUri == $productPricing.companyUri )
+        $subscription: SubscriptionPricingModel(productCode == "Send And Print" )
     then
         $productPricing.setPrice(55.0B)
 end
