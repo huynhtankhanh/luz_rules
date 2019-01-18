@@ -59,8 +59,8 @@ end
 
 rule "Customer legal form is EU and price plan is yearly"
     when
-        $productPricing: ProductPricing(pricePlan == "YEARLY");
-        $customer: CustomerPricingModel(legalForm == "EU", companyUri == $productPricing.companyUri);
+        $customer: CustomerPricingModel(legalForm == "EU");
+        $productPricing: ProductPricing(pricePlan == "YEARLY", companyUri == $customer.companyUri);
     then
         $productPricing.setPrice(359.15B);
         $productPricing.setTestingDuration("P30D");
@@ -68,8 +68,8 @@ end
 
 rule "Being customer since first day of year 2018 and price plan is QUARTERLY"
     when
-        $productPricing: ProductPricing(pricePlan == "QUARTERLY")
-        $customer: CustomerPricingModel(customerSinceDate >= "1-Jan-2018", companyUri == $productPricing.companyUri)
+        $customer: CustomerPricingModel(customerSinceDate >= "1-Jan-2018")
+        $productPricing: ProductPricing(pricePlan == "QUARTERLY", companyUri == $customer.companyUri)
     then
         $productPricing.setPrice(95.0B)
         $productPricing.setTestingDuration("P1M")
@@ -77,8 +77,8 @@ end
 
 rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
     when
-        $productPricing: ProductPricing(productCode == "Valiant Banking")
-        $subscription: SubscriptionPricingModel(productCode == "Send And Print", companyUri == $productPricing.companyUri )
+        $subscription: SubscriptionPricingModel(productCode == "Send And Print" )
+        $productPricing: ProductPricing(productCode == "Valiant Banking", companyUri == $subscription.companyUri)
     then
         $productPricing.setPrice(55.0B)
 end
