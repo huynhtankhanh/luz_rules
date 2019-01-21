@@ -59,8 +59,8 @@ end
 
 rule "Customer legal form is EU and price plan is yearly"
     when
+        $productPricing: ProductPricing(pricePlan == "YEARLY");
         $customer: CustomerPricingModel(legalForm == "EU");
-        $productPricing: ProductPricing(pricePlan == "YEARLY", companyUri == $customer.companyUri);
     then
         $productPricing.setPrice(359.15B);
         $productPricing.setTestingDuration("P30D");
@@ -68,8 +68,8 @@ end
 
 rule "Being customer since first day of year 2018 and price plan is QUARTERLY"
     when
+        $productPricing: ProductPricing(pricePlan == "QUARTERLY")
         $customer: CustomerPricingModel(customerSinceDate >= "1-Jan-2018")
-        $productPricing: ProductPricing(pricePlan == "QUARTERLY", companyUri == $customer.companyUri)
     then
         $productPricing.setPrice(95.0B)
         $productPricing.setTestingDuration("P1M")
@@ -77,8 +77,38 @@ end
 
 rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
     when
-        $subscription: SubscriptionPricingModel(productCode == "Send And Print" )
-        $productPricing: ProductPricing(productCode == "Valiant Banking", companyUri == $subscription.companyUri)
+        $subscription: SubscriptionPricingModel(productCode == "Send And Print")
+        $productPricing: ProductPricing(productCode == "Valiant Banking")
     then
         $productPricing.setPrice(55.0B)
+end
+
+rule "Price excl. VAT for KLARA Business"
+    when
+        $productPricing: ProductPricing()
+        $customer: CustomerPricingModel(customerType == "Business")
+    then
+        $productPricing.setVatIncluded(false)
+end
+
+rule "Price incl. VAT for KLARA Home"
+    when
+        $productPricing: ProductPricing()
+        $customer: CustomerPricingModel(customerType == "Home")
+    then
+        $productPricing.setVatIncluded(true)
+end
+
+rule "VAT Rate for first quarter of 2019"
+    when
+        $productPricing: ProductPricing(requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2019")
+    then
+        $productPricing.setVatRate(0.05B)
+end
+
+rule "VAT Rate for second quarter of 2019 up to the future"
+    when
+        $productPricing: ProductPricing(requestDate >= "1-Apr-2019")
+    then
+        $productPricing.setVatRate(0.06B)
 end
