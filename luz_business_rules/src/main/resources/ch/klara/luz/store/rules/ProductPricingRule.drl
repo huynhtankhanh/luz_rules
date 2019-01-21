@@ -85,30 +85,30 @@ end
 
 rule "Price excl. VAT for KLARA Business"
     when
-        $productPricing: ProductPricing()
-        $customer: CustomerPricingModel(customerType == "Business")
+        $customer: CustomerPricingModel(customerType == "Business");
+        $productPricing: ProductPricing();
     then
-        $productPricing.setVatIncluded(false)
+        $productPricing.setVatIncluded(false);
 end
 
 rule "Price incl. VAT for KLARA Home"
     when
-        $productPricing: ProductPricing()
-        $customer: CustomerPricingModel(customerType == "Home")
+        $customer: CustomerPricingModel(customerType == "Home");
+        $productPricing: ProductPricing();
     then
-        $productPricing.setVatIncluded(true)
+        $productPricing.setVatIncluded(true);
 end
 
 rule "VAT Rate for first quarter of 2019"
     when
-        $productPricing: ProductPricing(requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2019")
+        $productPricing: ProductPricing(requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2019");
     then
-        $productPricing.setVatRate(0.05B)
+        $productPricing.setVatRate(0.05B);
 end
 
 rule "VAT Rate for second quarter of 2019 up to the future"
     when
-        $productPricing: ProductPricing(requestDate >= "1-Apr-2019")
+        $productPricing: ProductPricing(requestDate >= "1-Apr-2019");
     then
-        $productPricing.setVatRate(0.06B)
+        $productPricing.setVatRate(0.06B);
 end
