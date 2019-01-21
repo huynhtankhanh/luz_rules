@@ -26,6 +26,9 @@ public class CustomerPricingModel implements java.io.Serializable {
 
 	private java.lang.String industryCode;
 
+	@org.kie.api.definition.type.Description(value = "Accepted values: Business | Home")
+	private java.lang.String customerType;
+
 	public CustomerPricingModel() {
 	}
 
@@ -102,12 +105,20 @@ public class CustomerPricingModel implements java.io.Serializable {
 		this.industryCode = industryCode;
 	}
 
+	public java.lang.String getCustomerType() {
+		return this.customerType;
+	}
+
+	public void setCustomerType(java.lang.String customerType) {
+		this.customerType = customerType;
+	}
+
 	public CustomerPricingModel(java.lang.String legalForm,
 			java.lang.String nogaCode, java.lang.String region,
 			java.util.Date customerSinceDate, java.lang.String name,
 			java.lang.String corporateIdentificationNumber,
 			java.lang.String internetAddress, java.lang.String socialNetwork,
-			java.lang.String industryCode) {
+			java.lang.String industryCode, java.lang.String customerType) {
 		this.legalForm = legalForm;
 		this.nogaCode = nogaCode;
 		this.region = region;
@@ -117,6 +128,7 @@ public class CustomerPricingModel implements java.io.Serializable {
 		this.internetAddress = internetAddress;
 		this.socialNetwork = socialNetwork;
 		this.industryCode = industryCode;
+		this.customerType = customerType;
 	}
 
 }
