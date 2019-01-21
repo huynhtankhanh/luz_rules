@@ -17,7 +17,11 @@ public class ProductPricing implements java.io.Serializable {
 
 	private java.lang.String testingDuration;
 
-	private java.lang.String companyUri;
+	private java.util.Date requestDate;
+
+	private java.math.BigDecimal vatRate;
+
+	private boolean vatIncluded;
 
 	public ProductPricing() {
 	}
@@ -70,25 +74,44 @@ public class ProductPricing implements java.io.Serializable {
 		this.testingDuration = testingDuration;
 	}
 
-	public java.lang.String getCompanyUri() {
-		return this.companyUri;
+	public java.util.Date getRequestDate() {
+		return this.requestDate;
 	}
 
-	public void setCompanyUri(java.lang.String companyUri) {
-		this.companyUri = companyUri;
+	public void setRequestDate(java.util.Date requestDate) {
+		this.requestDate = requestDate;
+	}
+
+	public java.math.BigDecimal getVatRate() {
+		return this.vatRate;
+	}
+
+	public void setVatRate(java.math.BigDecimal vatRate) {
+		this.vatRate = vatRate;
+	}
+
+	public boolean isVatIncluded() {
+		return this.vatIncluded;
+	}
+
+	public void setVatIncluded(boolean vatIncluded) {
+		this.vatIncluded = vatIncluded;
 	}
 
 	public ProductPricing(java.lang.String productCode, int volume,
 			java.lang.String pricePlan, java.math.BigDecimal price,
 			int klaraPoints, java.lang.String testingDuration,
-			java.lang.String companyUri) {
+			java.util.Date requestDate, java.math.BigDecimal vatRate,
+			boolean vatIncluded) {
 		this.productCode = productCode;
 		this.volume = volume;
 		this.pricePlan = pricePlan;
 		this.price = price;
 		this.klaraPoints = klaraPoints;
 		this.testingDuration = testingDuration;
-		this.companyUri = companyUri;
+		this.requestDate = requestDate;
+		this.vatRate = vatRate;
+		this.vatIncluded = vatIncluded;
 	}
 
 }
