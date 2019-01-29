@@ -4,19 +4,26 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.klara.luz</groupId>
   <artifactId>luz_business_rules</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.0</version>
   <name>luz_business_rules</name>
   <description>Business rules</description>
-  <distributionManagement>
+  <!--<repositories>
     <repository>
-      <id>central</id>
-      <name>plugins-release-local</name>
-      <url>https://repo.axonivy.io/ext-release-local</url>
+      <id>guvnor-m2-repo</id>
+      <name>Guvnor M2 Repo</name>
+      <url>http://localhost:8080/kie-wb/maven2/</url>
     </repository>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>plugins-snapshot-local</name>
-      <url>https://repo.axonivy.io/ext-snapshot-local</url>
-    </snapshotRepository>
-  </distributionManagement>
+  </repositories> -->
+  <distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>plugins-snapshot-local</name>
+			<url>https://repo.axonivy.io/ext-snapshot-local</url>
+		</snapshotRepository>
+		<repository>
+			<id>central</id>
+			<name>plugins-release-local</name>
+			<url>https://repo.axonivy.io/ext-release-local</url>
+		</repository>
+	</distributionManagement>
 </project>
