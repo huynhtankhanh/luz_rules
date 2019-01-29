@@ -7,11 +7,23 @@
   <version>2.0.0</version>
   <name>luz_business_rules</name>
   <description>Business rules</description>
-  <repositories>
+  <!--<repositories>
     <repository>
       <id>guvnor-m2-repo</id>
       <name>Guvnor M2 Repo</name>
       <url>http://localhost:8080/kie-wb/maven2/</url>
     </repository>
-  </repositories>
+  </repositories> -->
+  <distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>plugins-release-local</name>
+			<url>https://repo.axonivy.io/ext-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>plugins-snapshot-local</name>
+			<url>https://repo.axonivy.io/ext-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
