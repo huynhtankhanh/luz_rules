@@ -1,6 +1,22 @@
 <project-repositories>
   <repositories>
     <repository>
+      <include>false</include>
+      <metadata>
+        <id>axonivy-snapshot-repo</id>
+        <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
+        <source>SETTINGS</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>false</include>
+      <metadata>
+        <id>central</id>
+        <url>https://repo.axonivy.io/libs-release</url>
+        <source>SETTINGS</source>
+      </metadata>
+    </repository>
+    <repository>
       <include>true</include>
       <metadata>
         <id>local</id>
@@ -9,23 +25,7 @@
       </metadata>
     </repository>
     <repository>
-      <include>true</include>
-      <metadata>
-        <id>soreco_repo</id>
-        <url>http://192.168.48.10/artifactory/repo</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>axonivy-snapshot-repo</id>
-        <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
+      <include>false</include>
       <metadata>
         <id>snapshots</id>
         <url>https://repo.axonivy.io/libs-snapshot</url>
@@ -33,19 +33,19 @@
       </metadata>
     </repository>
     <repository>
-      <include>true</include>
+      <include>false</include>
+      <metadata>
+        <id>soreco_repo</id>
+        <url>http://192.168.48.10/artifactory/repo</url>
+        <source>SETTINGS</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>false</include>
       <metadata>
         <id>central</id>
         <url>https://repo.axonivy.io/ext-release-local</url>
         <source>DISTRIBUTION_MANAGEMENT</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
-        <id>central</id>
-        <url>https://repo.axonivy.io/libs-release</url>
-        <source>SETTINGS</source>
       </metadata>
     </repository>
   </repositories>
