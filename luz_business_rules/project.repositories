@@ -3,14 +3,6 @@
     <repository>
       <include>true</include>
       <metadata>
-        <id>central</id>
-        <url>https://repo.axonivy.io/ext-release-local</url>
-        <source>DISTRIBUTION_MANAGEMENT</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>true</include>
-      <metadata>
         <id>axonivy-snapshot-repo</id>
         <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
         <source>SETTINGS</source>
@@ -35,6 +27,14 @@
     <repository>
       <include>true</include>
       <metadata>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+        <source>PROJECT</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>true</include>
+      <metadata>
         <id>soreco_repo</id>
         <url>http://192.168.48.10/artifactory/repo</url>
         <source>SETTINGS</source>
@@ -44,8 +44,8 @@
       <include>true</include>
       <metadata>
         <id>central</id>
-        <url>https://repo.maven.apache.org/maven2</url>
-        <source>PROJECT</source>
+        <url>https://repo.axonivy.io/ext-release-local</url>
+        <source>DISTRIBUTION_MANAGEMENT</source>
       </metadata>
     </repository>
   </repositories>
