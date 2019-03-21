@@ -112,3 +112,24 @@ rule "VAT Rate for second quarter of 2019 up to the future"
     then
         $productPricing.setVatRate(0.06B);
 end
+
+rule "Print Post A product"
+    when
+        $productPricing: ProductPricing(productCode == "Print Post A")
+    then
+        $productPricing.setPrice(1.0B)
+end
+
+rule "Print Post Service product"
+    when
+        $productPricing: ProductPricing(productCode == "Print Post Service")
+    then
+        $productPricing.setPrice(0.5B)
+end
+
+rule "Print Page product"
+    when
+        $productPricing: ProductPricing(productCode == "Print Page")
+    then
+        $productPricing.setPrice(0.1B)
+end
