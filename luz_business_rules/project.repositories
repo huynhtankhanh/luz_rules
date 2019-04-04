@@ -17,22 +17,6 @@
       </metadata>
     </repository>
     <repository>
-      <include>false</include>
-      <metadata>
-        <id>soreco_repo</id>
-        <url>http://192.168.48.10/artifactory/repo</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
-      <include>false</include>
-      <metadata>
-        <id>axonivy-snapshot-repo</id>
-        <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
-        <source>SETTINGS</source>
-      </metadata>
-    </repository>
-    <repository>
       <include>true</include>
       <metadata>
         <id>guvnor-m2-repo</id>
@@ -46,6 +30,22 @@
         <id>local</id>
         <url>C:\Users\bqvinh/.m2/repository</url>
         <source>LOCAL</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>false</include>
+      <metadata>
+        <id>soreco_repo</id>
+        <url>http://192.168.48.10/artifactory/repo</url>
+        <source>SETTINGS</source>
+      </metadata>
+    </repository>
+    <repository>
+      <include>false</include>
+      <metadata>
+        <id>axonivy-snapshot-repo</id>
+        <url>http://repo.axonivy.io/artifactory/ext-snapshot-local</url>
+        <source>SETTINGS</source>
       </metadata>
     </repository>
   </repositories>
