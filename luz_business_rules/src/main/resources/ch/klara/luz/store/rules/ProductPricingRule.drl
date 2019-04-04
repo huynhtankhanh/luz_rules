@@ -75,14 +75,6 @@ rule "Being customer since first day of year 2018 and price plan is QUARTERLY"
         $productPricing.setTestingDuration("P1M")
 end
 
-rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
-    when
-        $subscription: SubscriptionPricingModel(productCode == "Send And Print")
-        $productPricing: ProductPricing(productCode == "Valiant Banking")
-    then
-        $productPricing.setPrice(55.0B)
-end
-
 rule "Price excl. VAT for KLARA Business"
     when
         $customer: CustomerPricingModel(customerType == "Business");
@@ -165,6 +157,15 @@ activation-group "Valiant Banking"
     then
         $productPricing.setPrice(40.0B)
         $productPricing.setAppliedPromoCode("KLARAOLDCODE")
+end
+
+rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
+salience 1
+    when
+        $subscription: SubscriptionPricingModel(productCode == "Send And Print")
+        $productPricing: ProductPricing(productCode == "Valiant Banking")
+    then
+        $productPricing.setPrice(55.0B)
 end
 
 rule "Valiant banking not yet subscribe without promo code"
