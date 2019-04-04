@@ -10,7 +10,7 @@ dialect "java"
 
 rule "Price plan is SINGLE"
 	when
-		$productPricing : ProductPricing( pricePlan == "SINGLE" )
+		$productPricing : ProductPricing( pricePlan == "SINGLE" && productCode not contains "Valiant Banking")
 	then
 		$productPricing.setPrice(3.0B);
 end
