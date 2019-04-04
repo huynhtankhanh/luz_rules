@@ -133,3 +133,55 @@ rule "Print Page product"
     then
         $productPricing.setPrice(0.1B)
 end
+
+
+/*******************************
+ * 
+ * VALIANT BANKING PRODUCT 
+ *
+ *******************************/
+
+rule "Valiant banking not yet subscribe with promo code KLARA"
+    when
+        $productPricing: ProductPricing(
+            productCode == "Valiant Banking", 
+            requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2020",
+            promoCode == "KLARA"
+        )
+    then
+        $productPricing.setPrice(30.0B)
+        $productPricing.setAppliedPromoCode("KLARA")
+end
+
+rule "Valiant banking not yet subscribe without promo code"
+    when
+        $productPricing: ProductPricing(
+            productCode == "Valiant Banking"
+        )
+    then
+        $productPricing.setPrice(50.0B)
+end
+
+rule "Valiant banking already subscribed with latest promo code KLARA"
+    when
+        $productPricing: ProductPricing(productCode == "Valiant Banking")
+        $subscription: SubscriptionPricingModel(
+            productCode == "Valiant Banking",
+            promotionCode == "KLARA"
+        )
+    then
+        $productPricing.setPrice(30.0B)
+        $productPricing.setAppliedPromoCode("KLARA")
+end
+
+rule "Valiant banking already subscribed with OLDER promo code KLARAOLDCODE"
+    when
+        $productPricing: ProductPricing(productCode == "Valiant Banking")
+        $subscription: SubscriptionPricingModel(
+            productCode == "Valiant Banking",
+            promotionCode == "KLARAOLDCODE"
+        )
+    then
+        $productPricing.setPrice(40.0B)
+        $productPricing.setAppliedPromoCode("KLARAOLDCODE")
+end
