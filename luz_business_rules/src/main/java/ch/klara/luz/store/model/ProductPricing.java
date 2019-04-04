@@ -23,6 +23,12 @@ public class ProductPricing implements java.io.Serializable {
 
 	private boolean vatIncluded;
 
+	@org.kie.api.definition.type.Description(value = "Indicate the promotion code (special discount of product price)")
+	private java.lang.String promoCode;
+
+	@org.kie.api.definition.type.Description(value = "- Output \n- Indicate which promo code is applied")
+	private java.lang.String appliedPromoCode;
+
 	public ProductPricing() {
 	}
 
@@ -98,11 +104,28 @@ public class ProductPricing implements java.io.Serializable {
 		this.vatIncluded = vatIncluded;
 	}
 
+	public java.lang.String getPromoCode() {
+		return this.promoCode;
+	}
+
+	public void setPromoCode(java.lang.String promoCode) {
+		this.promoCode = promoCode;
+	}
+
+	public java.lang.String getAppliedPromoCode() {
+		return this.appliedPromoCode;
+	}
+
+	public void setAppliedPromoCode(java.lang.String appliedPromoCode) {
+		this.appliedPromoCode = appliedPromoCode;
+	}
+
 	public ProductPricing(java.lang.String productCode, int volume,
 			java.lang.String pricePlan, java.math.BigDecimal price,
 			int klaraPoints, java.lang.String testingDuration,
 			java.util.Date requestDate, java.math.BigDecimal vatRate,
-			boolean vatIncluded) {
+			boolean vatIncluded, java.lang.String promoCode,
+			java.lang.String appliedPromoCode) {
 		this.productCode = productCode;
 		this.volume = volume;
 		this.pricePlan = pricePlan;
@@ -112,6 +135,8 @@ public class ProductPricing implements java.io.Serializable {
 		this.requestDate = requestDate;
 		this.vatRate = vatRate;
 		this.vatIncluded = vatIncluded;
+		this.promoCode = promoCode;
+		this.appliedPromoCode = appliedPromoCode;
 	}
 
 }
