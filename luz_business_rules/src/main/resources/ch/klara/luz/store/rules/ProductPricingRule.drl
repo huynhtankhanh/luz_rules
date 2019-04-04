@@ -173,5 +173,5 @@ activation-group "Valiant Banking"
     when
         $productPricing: ProductPricing(productCode == "Valiant Banking")
     then
-        $productPricing.setPrice(50.0B)
+        $productPricing.setPrice(70.0B)
 end
