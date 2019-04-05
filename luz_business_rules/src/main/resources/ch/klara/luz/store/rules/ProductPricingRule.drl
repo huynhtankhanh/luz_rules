@@ -178,6 +178,7 @@ end
 
 rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
 salience 1
+activation-group "Valiant Banking"
     when
         $subscription: SubscriptionPricingModel(productCode == "Send And Print")
         $productPricing: ProductPricing(productCode == "Valiant Banking")
