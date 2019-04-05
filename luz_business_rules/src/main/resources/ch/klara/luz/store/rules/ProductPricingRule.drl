@@ -38,7 +38,7 @@ end
 
 rule "Price plan is MONTHLY"
     when
-        $productPricing: ProductPricing(productCode not contains "POS" && productCode not contains "BOOKING" && pricePlan == "MONTHLY")
+        $productPricing: ProductPricing(productCode not contains "POS" && productCode not contains "BOOKING" && productCode not contains "Valiant Banking" && pricePlan == "MONTHLY")
     then
         $productPricing.setPrice(39.0B);
 end
