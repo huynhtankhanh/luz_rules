@@ -133,30 +133,43 @@ end
  *****************************************************************/
 
 rule "Valiant banking not yet subscribe with promo code KLARA"
-salience 3
+salience 2
 activation-group "Valiant Banking"
     when
         $productPricing: ProductPricing(
-            productCode == "Valiant Banking", 
-            requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2020", 
+            productCode == "Valiant Banking",
+            requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2020",
             promotionCode == "KLARA"
         )
+        /* not exist any subscriptions already use this promotion code */
+        not($subscription: SubscriptionPricingModel(
+            productCode == "Valiant Banking",
+            promotionCode == "KLARA",
+            subscriptionUntil != null
+        ))
     then
+        /* profit from promotion code KLARA */
         $productPricing.setPrice(30.0B)
         $productPricing.setDiscount("70%")
 end
 
 rule "Valiant banking already subscribed with latest promo code KLARA"
-salience 2
+salience 1
 activation-group "Valiant Banking"
     when
-        $productPricing: ProductPricing(productCode == "Valiant Banking")
+        /* no input promotion code */
+        $productPricing: ProductPricing(
+            productCode == "Valiant Banking",
+            promotionCode == null
+        )
+        /* exist subscription with latest promotion code KLARA*/
         $subscription: SubscriptionPricingModel(
-            productCode == "Valiant Banking", 
+            productCode == "Valiant Banking",
             promotionCode == "KLARA",
             subscriptionUntil == null
         )
     then
+        /* profit from promotion code KLARA */
         $productPricing.setPrice(30.0B)
         $productPricing.setDiscount("70%")
 end
@@ -165,28 +178,37 @@ rule "Valiant banking already subscribed with OLDER promo code KLARAOLDCODE"
 salience 1
 activation-group "Valiant Banking"
     when
-        $productPricing: ProductPricing(productCode == "Valiant Banking")
+        /* no input promotion code */
+        $productPricing: ProductPricing(
+            productCode == "Valiant Banking",
+            promotionCode == null
+        )
+        /* exist subscription with older promotion code KLARAOLDCODE */
         $subscription: SubscriptionPricingModel(
-            productCode == "Valiant Banking", 
+            productCode == "Valiant Banking",
             promotionCode == "KLARAOLDCODE",
             subscriptionUntil == null
         )
     then
+        /* profit from promotion code KLARAOLDCODE */
         $productPricing.setPrice(40.0B)
         $productPricing.setDiscount("60%")
 end
 
+/* Basic case: get promotion from subscription of other product */
 rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
-salience 1
+salience 0
 activation-group "Valiant Banking"
     when
         $subscription: SubscriptionPricingModel(productCode == "Send And Print")
         $productPricing: ProductPricing(productCode == "Valiant Banking")
     then
+        /* profit from other product */
         $productPricing.setPrice(55.0B)
         $productPricing.setDiscount(null)
 end
 
+/* Basic case: no promotion at all */
 rule "Valiant banking not yet subscribe without promo code"
 salience 0
 activation-group "Valiant Banking"
