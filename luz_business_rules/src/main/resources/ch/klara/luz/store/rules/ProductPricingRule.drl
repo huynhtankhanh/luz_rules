@@ -136,10 +136,14 @@ rule "Valiant banking not yet subscribe with promo code KLARA"
 salience 3
 activation-group "Valiant Banking"
     when
-        $productPricing: ProductPricing(productCode == "Valiant Banking", requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2020",promoCode == "KLARA")
+        $productPricing: ProductPricing(
+            productCode == "Valiant Banking", 
+            requestDate >= "1-Jan-2019" && requestDate <= "31-Mar-2020", 
+            promotionCode == "KLARA"
+        )
     then
         $productPricing.setPrice(30.0B)
-        $productPricing.setAppliedPromoCode("KLARA")
+        $productPricing.setDiscount("40%")
 end
 
 rule "Valiant banking already subscribed with latest promo code KLARA"
@@ -147,10 +151,13 @@ salience 2
 activation-group "Valiant Banking"
     when
         $productPricing: ProductPricing(productCode == "Valiant Banking")
-        $subscription: SubscriptionPricingModel(productCode == "Valiant Banking", promotionCode == "KLARA")
+        $subscription: SubscriptionPricingModel(
+            productCode == "Valiant Banking", 
+            promotionCode == "KLARA"
+        )
     then
         $productPricing.setPrice(30.0B)
-        $productPricing.setAppliedPromoCode("KLARA")
+        $productPricing.setDiscount("40%")
 end
 
 rule "Valiant banking already subscribed with OLDER promo code KLARAOLDCODE"
@@ -158,10 +165,13 @@ salience 1
 activation-group "Valiant Banking"
     when
         $productPricing: ProductPricing(productCode == "Valiant Banking")
-        $subscription: SubscriptionPricingModel(productCode == "Valiant Banking", promotionCode == "KLARAOLDCODE")
+        $subscription: SubscriptionPricingModel(
+            productCode == "Valiant Banking", 
+            promotionCode == "KLARAOLDCODE"
+        )
     then
         $productPricing.setPrice(40.0B)
-        $productPricing.setAppliedPromoCode("KLARAOLDCODE")
+        $productPricing.setDiscount("30%")
 end
 
 rule "There is a subscription for 'Send And Print' product, deduct for 'Valiant Banking' product"
