@@ -126,6 +126,11 @@ rule "Print Page product"
         $productPricing.setPrice(0.1B)
 end
 
+/*****************************************************************
+ *
+ * VALIANT BANKING
+ *
+ *****************************************************************/
 
 rule "Valiant banking not yet subscribe with promo code KLARA"
 salience 3
